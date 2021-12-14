@@ -3,3 +3,5 @@ const Park = function (name, ticketPrice, dinosaurs) {
     this.ticketPrice = ticketPrice;
     this.dinosaurs = dinosaurs;
 }
+
+module.exports = Park;
