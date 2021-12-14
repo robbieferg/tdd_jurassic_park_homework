@@ -9,11 +9,13 @@ describe('Park', function() {
   let dinosaur1;
   let dinosaur2;
   let dinosaur3;
+  let dinosaur4;
 
   this.beforeEach(function () {
     dinosaur1 = new Dinosaur("T. Rex", "Carnivore", 1500);
     dinosaur2 = new Dinosaur("Brontosaurus", "Herbivore", 800);
     dinosaur3 = new Dinosaur("Oviraptor", "Omnivore", 300);
+    dinosaur4 = new Dinosaur("Pterodactyl", "Carnivore", 650);
     dinosaurs = [dinosaur1, dinosaur2, dinosaur3];
     park = new Park("Jurassic Park", 17.50, dinosaurs);
   })
@@ -34,9 +36,18 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, dinosaurs)
   });
 
-  it('should be able to add a dinosaur to its collection');
+  it('should be able to add a dinosaur to its collection', function() {
+    park.addDinosaur(dinosaur4);
+    const actual = dinosaurs.includes(dinosaur4);
+    assert.deepStrictEqual(actual, true);
+  });
 
-  it('should be able to remove a dinosaur from its collection');
+  it('should be able to remove a dinosaur from its collection', function() {
+    park.removeDinosaur(dinosaur3);
+    const actual = dinosaurs.includes(dinosaur3);
+    assert.deepStrictEqual(actual, false);
+  });
+    
 
   it('should be able to find the dinosaur that attracts the most visitors');
 
