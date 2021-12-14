@@ -69,7 +69,40 @@ Park.prototype.removeDinosaursBySpecies = function(species) {
         }
     }
     
+}
+
+Park.prototype.getDietCounts = function() {
     
+    let carnivoreCount = 0;
+    for (var i=0; i < this.dinosaurs.length; i++) {
+        if (this.dinosaurs[i].diet === "Carnivore") {
+            carnivoreCount += 1;
+        }
+    }
+    
+
+    let herbivoreCount = 0;
+    for (var i=0; i < this.dinosaurs.length; i++) {
+        if (this.dinosaurs[i].diet === "Herbivore") {
+            herbivoreCount += 1;
+        }
+    }
+    
+
+    let omnivoreCount = 0;
+    for (var i=0; i < this.dinosaurs.length; i++) {
+        if (this.dinosaurs[i].diet === "Omnivore") {
+            omnivoreCount += 1;
+        }
+    }
+    
+    let diets = {
+        carnivore: carnivoreCount,
+        herbivore: herbivoreCount,
+        omnivore: omnivoreCount
+    }
+
+    return diets;
 }
 
 module.exports = Park;

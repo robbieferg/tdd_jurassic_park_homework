@@ -17,6 +17,7 @@ describe('Park', function() {
     dinosaur3 = new Dinosaur("Oviraptor", "Omnivore", 300);
     dinosaur4 = new Dinosaur("Pterodactyl", "Carnivore", 650);
     dinosaur5 = new Dinosaur("T. Rex", "Carnivore", 1200);
+    dinosaur6 = new Dinosaur("Brachiosaurus", "Herbivore", 250);
     dinosaurs = [dinosaur1, dinosaur2, dinosaur3];
     park = new Park("Jurassic Park", 17.50, dinosaurs);
   })
@@ -83,5 +84,14 @@ describe('Park', function() {
     const actual = park.dinosaurs.includes(dinosaur1) || park.dinosaurs.includes(dinosaur5);
     assert.strictEqual(actual, false);
   });
+
+  it("should be able to provide object containing number of dinosaurs for each diet type", function() {
+    park.addDinosaur(dinosaur4);
+    park.addDinosaur(dinosaur5);
+    park.addDinosaur(dinosaur6);
+    diets = park.getDietCounts();
+    actual = diets.carnivore === 3 && diets.herbivore === 2 && diets.omnivore === 1;
+    assert.strictEqual(actual, true);
+  })
 
 });
